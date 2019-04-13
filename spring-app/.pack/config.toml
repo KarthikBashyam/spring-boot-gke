@@ -1,0 +1,7 @@
+default-stack-id = "io.buildpacks.stacks.bionic"
+default-builder = "packs/samples:v3alpha2"
+
+[[stacks]]
+  id = "io.buildpacks.stacks.bionic"
+  build-image = "packs/build:v3alpha2"
+  run-images = ["packs/run:v3alpha2"]
