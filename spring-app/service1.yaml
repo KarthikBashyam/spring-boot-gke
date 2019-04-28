@@ -1,0 +1,40 @@
+apiVersion: v1  
+kind: Service  
+metadata:  
+  name: hello-service-1
+  labels:  
+    app: hello-service-1 
+spec:  
+  ports:  
+    - name: http  
+      port: 8001  
+  selector:  
+    app: hello-service-1
+---  
+apiVersion: extensions/v1beta1  
+kind: Deployment  
+metadata:  
+  name: hello-service-1 
+spec:  
+  replicas: 1  
+  template:  
+    metadata:  
+      labels:  
+        app: hello-service-1
+        version: v1  
+    spec:  
+      containers:  
+        - name: hello-app  
+          image: gcr.io/inspiring-code-228600/myapp 
+          imagePullPolicy: IfNotPresent  
+          env:  
+            - name: "Service"  
+              value: "Hello GKE Service 1"  
+          ports:  
+            - containerPort: 8001  
+          livenessProbe:  
+            httpGet:  
+              path: /  
+              port: 8001
+            initialDelaySeconds: 5  
+            periodSeconds: 5
