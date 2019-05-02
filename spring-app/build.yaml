@@ -1,0 +1,16 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: spring-boot-gke-service
+spec:
+  timeout: 20m
+  #serviceAccountName: svc-build
+  source:    
+    git:
+      url: https://github.com/KarthikBashyam/spring-boot-gke.git
+      revision: master
+  template:
+    name: spring-boot-gke-build-template
+    arguments:    
+    - name: IMAGE
+      value: gcr.io/inspiring-code-228600/myapp:latest
