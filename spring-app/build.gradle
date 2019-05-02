@@ -20,3 +20,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+jar {
+	baseName = 'spring-boot-gke'
+	version = '0.1.0'	
+}
