@@ -4,7 +4,7 @@ metadata:
   name: spring-boot-gke-service
 spec:
   timeout: 20m
-  #serviceAccountName: svc-build
+  serviceAccountName: svc-build
   source:    
     git:
       url: https://github.com/KarthikBashyam/spring-boot-gke.git
